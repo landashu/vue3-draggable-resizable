@@ -10,6 +10,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -35,6 +36,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -70,6 +72,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -91,7 +94,7 @@ declare const _default: ({
             lockAspectRatio: boolean;
         } & {}>, {
             handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-            resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+            resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
             setWidth(val: number): number;
             setHeight(val: number): number;
             setTop(val: number): number;
@@ -120,6 +123,7 @@ declare const _default: ({
             resizingMinWidth: import("vue").Ref<number>;
             resizingMinHeight: import("vue").Ref<number>;
             aspectRatio: import("vue").ComputedRef<number>;
+            scale: import("vue").Ref<number>;
             setEnable: (value: boolean) => boolean;
             setDragging: (value: boolean) => boolean;
             setResizing: (value: boolean) => boolean;
@@ -128,10 +132,6 @@ declare const _default: ({
             setResizingMaxWidth: (value: number) => number;
             setResizingMinWidth: (value: number) => number;
             setResizingMinHeight: (value: number) => number;
-            $setWidth: (val: number) => number;
-            $setHeight: (val: number) => number;
-            $setTop: (val: number) => number;
-            $setLeft: (val: number) => number;
             containerRef: import("vue").Ref<HTMLElement>;
             containerProvider: import("./components/types").ContainerProvider;
         }, unknown, {
@@ -147,6 +147,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -176,6 +177,7 @@ declare const _default: ({
         y: number;
         w: number;
         h: number;
+        scale: number;
         draggable: boolean;
         resizable: boolean;
         initW: number;
@@ -197,7 +199,7 @@ declare const _default: ({
         lockAspectRatio: boolean;
     } & {}> & import("vue").ShallowUnwrapRef<{
         handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-        resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+        resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
         setWidth(val: number): number;
         setHeight(val: number): number;
         setTop(val: number): number;
@@ -226,6 +228,7 @@ declare const _default: ({
         resizingMinWidth: import("vue").Ref<number>;
         resizingMinHeight: import("vue").Ref<number>;
         aspectRatio: import("vue").ComputedRef<number>;
+        scale: import("vue").Ref<number>;
         setEnable: (value: boolean) => boolean;
         setDragging: (value: boolean) => boolean;
         setResizing: (value: boolean) => boolean;
@@ -234,10 +237,6 @@ declare const _default: ({
         setResizingMaxWidth: (value: number) => number;
         setResizingMinWidth: (value: number) => number;
         setResizingMinHeight: (value: number) => number;
-        $setWidth: (val: number) => number;
-        $setHeight: (val: number) => number;
-        $setTop: (val: number) => number;
-        $setLeft: (val: number) => number;
         containerRef: import("vue").Ref<HTMLElement>;
         containerProvider: import("./components/types").ContainerProvider;
     }> & {
@@ -257,6 +256,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -278,7 +278,7 @@ declare const _default: ({
     lockAspectRatio: boolean;
 } & {}>, {
     handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-    resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+    resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
     setWidth(val: number): number;
     setHeight(val: number): number;
     setTop(val: number): number;
@@ -307,6 +307,7 @@ declare const _default: ({
     resizingMinWidth: import("vue").Ref<number>;
     resizingMinHeight: import("vue").Ref<number>;
     aspectRatio: import("vue").ComputedRef<number>;
+    scale: import("vue").Ref<number>;
     setEnable: (value: boolean) => boolean;
     setDragging: (value: boolean) => boolean;
     setResizing: (value: boolean) => boolean;
@@ -315,10 +316,6 @@ declare const _default: ({
     setResizingMaxWidth: (value: number) => number;
     setResizingMinWidth: (value: number) => number;
     setResizingMinHeight: (value: number) => number;
-    $setWidth: (val: number) => number;
-    $setHeight: (val: number) => number;
-    $setTop: (val: number) => number;
-    $setLeft: (val: number) => number;
     containerRef: import("vue").Ref<HTMLElement>;
     containerProvider: import("./components/types").ContainerProvider;
 }, unknown, {
@@ -334,6 +331,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -365,6 +363,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -390,6 +389,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -425,6 +425,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -446,7 +447,7 @@ declare const _default: ({
             lockAspectRatio: boolean;
         } & {}>, {
             handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-            resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+            resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
             setWidth(val: number): number;
             setHeight(val: number): number;
             setTop(val: number): number;
@@ -475,6 +476,7 @@ declare const _default: ({
             resizingMinWidth: import("vue").Ref<number>;
             resizingMinHeight: import("vue").Ref<number>;
             aspectRatio: import("vue").ComputedRef<number>;
+            scale: import("vue").Ref<number>;
             setEnable: (value: boolean) => boolean;
             setDragging: (value: boolean) => boolean;
             setResizing: (value: boolean) => boolean;
@@ -483,10 +485,6 @@ declare const _default: ({
             setResizingMaxWidth: (value: number) => number;
             setResizingMinWidth: (value: number) => number;
             setResizingMinHeight: (value: number) => number;
-            $setWidth: (val: number) => number;
-            $setHeight: (val: number) => number;
-            $setTop: (val: number) => number;
-            $setLeft: (val: number) => number;
             containerRef: import("vue").Ref<HTMLElement>;
             containerProvider: import("./components/types").ContainerProvider;
         }, unknown, {
@@ -502,6 +500,7 @@ declare const _default: ({
             y: number;
             w: number;
             h: number;
+            scale: number;
             draggable: boolean;
             resizable: boolean;
             initW: number;
@@ -531,6 +530,7 @@ declare const _default: ({
         y: number;
         w: number;
         h: number;
+        scale: number;
         draggable: boolean;
         resizable: boolean;
         initW: number;
@@ -552,7 +552,7 @@ declare const _default: ({
         lockAspectRatio: boolean;
     } & {}> & import("vue").ShallowUnwrapRef<{
         handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-        resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+        resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
         setWidth(val: number): number;
         setHeight(val: number): number;
         setTop(val: number): number;
@@ -581,6 +581,7 @@ declare const _default: ({
         resizingMinWidth: import("vue").Ref<number>;
         resizingMinHeight: import("vue").Ref<number>;
         aspectRatio: import("vue").ComputedRef<number>;
+        scale: import("vue").Ref<number>;
         setEnable: (value: boolean) => boolean;
         setDragging: (value: boolean) => boolean;
         setResizing: (value: boolean) => boolean;
@@ -589,10 +590,6 @@ declare const _default: ({
         setResizingMaxWidth: (value: number) => number;
         setResizingMinWidth: (value: number) => number;
         setResizingMinHeight: (value: number) => number;
-        $setWidth: (val: number) => number;
-        $setHeight: (val: number) => number;
-        $setTop: (val: number) => number;
-        $setLeft: (val: number) => number;
         containerRef: import("vue").Ref<HTMLElement>;
         containerProvider: import("./components/types").ContainerProvider;
     }> & {
@@ -612,6 +609,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;
@@ -633,7 +631,7 @@ declare const _default: ({
     lockAspectRatio: boolean;
 } & {}>, {
     handlesFiltered: import("vue").ComputedRef<import("./components/types").ResizingHandle[]>;
-    resizeHandleDown: (e: MouseEvent, handleType: import("./components/types").ResizingHandle) => void;
+    resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: import("./components/types").ResizingHandle) => void;
     setWidth(val: number): number;
     setHeight(val: number): number;
     setTop(val: number): number;
@@ -662,6 +660,7 @@ declare const _default: ({
     resizingMinWidth: import("vue").Ref<number>;
     resizingMinHeight: import("vue").Ref<number>;
     aspectRatio: import("vue").ComputedRef<number>;
+    scale: import("vue").Ref<number>;
     setEnable: (value: boolean) => boolean;
     setDragging: (value: boolean) => boolean;
     setResizing: (value: boolean) => boolean;
@@ -670,10 +669,6 @@ declare const _default: ({
     setResizingMaxWidth: (value: number) => number;
     setResizingMinWidth: (value: number) => number;
     setResizingMinHeight: (value: number) => number;
-    $setWidth: (val: number) => number;
-    $setHeight: (val: number) => number;
-    $setTop: (val: number) => number;
-    $setLeft: (val: number) => number;
     containerRef: import("vue").Ref<HTMLElement>;
     containerProvider: import("./components/types").ContainerProvider;
 }, unknown, {
@@ -689,6 +684,7 @@ declare const _default: ({
     y: number;
     w: number;
     h: number;
+    scale: number;
     draggable: boolean;
     resizable: boolean;
     initW: number;

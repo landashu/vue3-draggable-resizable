@@ -411,7 +411,8 @@ export function initResizeHandle(
     setResizingMaxWidth,
     setResizingMaxHeight,
     setResizingMinWidth,
-    setResizingMinHeight
+    setResizingMinHeight,
+    scale
   } = containerProps
   const { parentWidth, parentHeight } = parentSize
   let lstW = 0
@@ -427,8 +428,8 @@ export function initResizeHandle(
   const resizeHandleDrag = (e: HandleEvent) => {
     e.preventDefault()
     let [_pageX, _pageY] = getPosition(e)
-    let deltaX = _pageX - lstPageX
-    let deltaY = _pageY - lstPageY
+    let deltaX = (_pageX - lstPageX) / scale.value
+    let deltaY = (_pageY - lstPageY) / scale.value
     let _deltaX = deltaX
     let _deltaY = deltaY
     if (props.lockAspectRatio) {
