@@ -38,6 +38,7 @@ export function initState(props: any, emit: any) {
   const [resizingMaxHeight, setResizingMaxHeight] = useState<number>(Infinity)
   const [resizingMinWidth, setResizingMinWidth] = useState<number>(props.minW)
   const [resizingMinHeight, setResizingMinHeight] = useState<number>(props.minH)
+  const [scale, setScale] = useState<number>(props.scale)
   const aspectRatio = computed(() => height.value / width.value)
   watch(
     width,
@@ -73,6 +74,9 @@ export function initState(props: any, emit: any) {
       setEnable(newVal)
     }
   )
+  watch(()=>props.scale,()=>{
+    setScale(props.scale)
+  })
   return {
     id: getId(),
     width,
@@ -88,6 +92,7 @@ export function initState(props: any, emit: any) {
     resizingMinWidth,
     resizingMinHeight,
     aspectRatio,
+    scale,
     setEnable,
     setDragging,
     setResizing,
@@ -248,7 +253,8 @@ export function initDraggableContainer(
     setDragging,
     setEnable,
     setResizing,
-    setResizingHandle
+    setResizingHandle,
+    scale
   } = containerProps
   const { setTop, setLeft } = limitProps
   let lstX = 0
@@ -287,8 +293,9 @@ export function initDraggableContainer(
     e.preventDefault()
     if (!(dragging.value && containerRef.value)) return
     const [pageX, pageY] = getPosition(e)
-    const deltaX = pageX - lstPageX
-    const deltaY = pageY - lstPageY
+    console.log(scale.value)
+    const deltaX = (pageX - lstPageX) / scale.value
+    const deltaY = (pageY - lstPageY) / scale.value
     let newLeft = lstX + deltaX
     let newTop = lstY + deltaY
     if (referenceLineMap !== null) {

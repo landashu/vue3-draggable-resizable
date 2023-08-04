@@ -12,8 +12,9 @@
     <div>
       h: {{ h }}<button @click="h += 10">+</button><button @click="h -= 10">-</button>
     </div>
+    scale:{{scale}} 滚动鼠标滚轮缩放画布
     <div>active:{{ active }}<br /></div>
-    <div class="parent">
+    <div class="parent" :style="{transform:'scale('+scale+')'}">
       <Vue3DraggableResizable
         :initW="40"
         :initH="80"
@@ -29,6 +30,7 @@
         :disabledW="false"
         :disabledH="false"
         :disabledY="false"
+        :scale="scale"
         :lockAspectRatio="true"
         classNameHandle="my-handle"
         @activated="print('activated')"
@@ -62,20 +64,34 @@ export default defineComponent({
       active: false,
       draggable: true,
       resizable: true,
+      scale:1
     };
   },
-  mounted() {},
+  mounted() {
+    window.addEventListener("mousewheel",this.mousewheel,false)
+  },
   methods: {
     print(val, e) {
       // console.log(val, e)
+    },
+    mousewheel(e){
+      if(e.deltaY<0){
+        if(this.scale<1){
+          this.scale = Math.fround((this.scale+0.1)*100)/100
+        }
+      }else{
+        if(this.scale>0.1){
+          this.scale = Math.fround((this.scale-0.1)*100)/100
+        }
+      }
     },
   },
 });
 </script>
 <style lang="less" scoped>
 .parent {
-  width: 300px;
-  height: 300px;
+  width: 1000px;
+  height: 700px;
   // position: absolute;
   // top: 100px;
   // left: 200px;
